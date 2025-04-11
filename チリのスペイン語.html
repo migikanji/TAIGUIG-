@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミギー大言語 - Plataforma de Aprendizaje</title>
+    <style>
+        /* Fuente personalizada */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('patron-personalizado.png') repeat;
+            background-size: 120px;
+            color: #262626;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* HEADER OSCURO */
+        header {
+            background-color: rgba(30, 30, 30, 0.95);
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            border-bottom: 3px solid #4133ff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            color: aliceblue;
+            text-align: center;
+        }
+
+        header img {
+            height: 150px;
+            margin-right: 15px;
+        }
+
+        /* DECORACIÓN CON GIFs */
+        .gif-decorativo {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .gif-izquierda { top: 50px; left: 10px; }
+        .gif-derecha { top: 50px; right: 10px; }
+
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 87, 51, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* BOTÓN DE CONTACTAR */
+        .contact-btn {
+            background-color: #0800ff;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(43, 0, 255, 0.189);
+        }
+
+        .contact-btn:hover {
+            background-color: #00eeff;
+            box-shadow: 0 0 15px rgba(51, 255, 231, 0.31);
+            transform: scale(1.1);
+        }
+
+        /* DROPDOWN - MENÚ DESPLEGABLE */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .dropdown-btn {
+            background-color: #1e1e1e;
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-btn:hover {
+            background-color: #333;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #2b2b2b;
+            min-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            overflow: hidden;
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgb(255, 255, 255);
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #3853ff;
+        }
+
+        /* Mostrar dropdown cuando está activo */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* BOTÓN BACK TO TOP */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3392ff;
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            border: none;
+            box-shadow: 0 0 10px rgba(110, 122, 255, 0.384);
+            transition: 0.3s;
+            display: none;
+        }
+
+        .back-to-top:hover {
+            background-color: #18327a;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="智利のロゴマーク.png">
+        ミギー大言語 - Plataforma de Aprendizaje de Idiomas
+    </header>
+    <img src="chirino dmfiojsmdojifiojsdio.png" class="gif-decorativo" id="gif-izquierda">
+ 
+
+    <div class="container">
+        <h2>Bienvenido a ミギー大言語・チリのスペイン語</h2>
+        <p>parende Español chileno.</p>
+         <h2>mas idiomas en...</h2>
+        <div class="container"><a href="ミギー大言語oficial.html">ミギー大言語</a></div>
+        <div class="dropdown">
+            <button class="dropdown-btn">mas dialectos del Español ▼</button>
+            <div class="dropdown-content">
+                <a href="">uruguayo</a>
+                <a href="スペイン語.html">Español(España)</a>
+                <a href="">argentino</a>
+                <a href="">peruano</a>
+                <a href="">boliviano</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">lecciones novato▼</button>
+            <div class="dropdown-content">
+                <p>nivel 1 (novato)</p>
+                <a href="#LECCION 1 CHILE">leccion 1</a>
+                <a href="#LECCION 2 CHILE">leccion 2</a>
+                <a href="#LECCION 3 CHILE">leccion 3</a>
+                <a href="#LECCION 4 CHILE">leccion 4</a>
+                <a href="#LECCION 5 CHILE">leccion 5</a>
+                <a href="#LECCION 6 CHILE">leccion 6</a>
+                <a href="#LECCION 7 CHILE">leccion 7</a>
+                <a href="#LECCION 8 CHILE">leccion 8</a>
+                <a href="#LECCION 9 CHILE">leccion 9</a>
+                <a href="#LECCION 10 CHILE">leccion 10</a>
+            </div>
+    </div>                          
+        <div class="dropdown">
+            <button class="dropdown-btn">niveles▼</button>
+            <div class="dropdown-content">
+                <a href="#N 1 CHILE">A1</a>
+                <a href="#N 2 CHILE">A2</a>
+                <a href="#N 3 CHILE">B1</a>
+                <a href="#N 4 CHILE">B2</a>
+                <a href="#N 5 CHILE">C1</a>
+                <a href="#N 6 CHILE">C2</a>
+                <a href="#N 7 CHILE">D1</a>
+            </div>
+        </div>
+        <h3>En el chileno se habla mal no' comemo' alguna' letra' al hablar tenemos modismos un acento y no ocupamo' bien la gramatica</h3>
+        <br><br>
+        <div class="container">
+            <div id="LECCION 1 CHILE">
+                <div id="N 1 CHILE">
+               <h1>NIVEL 1 LECCION 1</h1>
+               </div>
+               <p>en esta leccion vamos a aprender a tener un tono chileno y sonar como un chileno</p>==   
+               <h1>numero uno lo numeros basico</h1>
+                <h1> 1 uno /únŏ/<h1>
+                    <h1> 2 dos /dó'/</h1>
+                    <h1> 3 tres /tɾe'/</h1>
+                    <h1> 4 cuatro /cuatɾ(la o casi no suena)/ <h1>
+                        <h1> 5 cinco /cinco/</h1>
+                        <h1> 6 seis /seiss/</h1> 
+                        <h1> 7 siete /siete/ <h1>
+                            <h1> 8 ocho /ochŏ(la o casi no suena)/</h1>
+                            <h1> 9 nueve /nuebe/</h1>
+                            <h1> 10 diez /diess/<h1>
+                         <h2>ejemplos!!!</h2>
+                         <h3>una ves habian 2 autos en el mismo lugar</h3>
+                         <h4>/ună ve' abian̆ dó' autŏ en el mi'smo lugaɾ/</h4>       
+                             <h1>VAMOS A HACER UN TEST</h1>
+        </div>
+            </div>
+    </div>
+
+<h3>ミギー大言語 es una plataforma dedicada al aprendizaje de idiomas, proporcionando recursos interactivos y materiales educativos de calidad para estudiantes de todo el mundo. tambien puedes contactarnos para poner tu propio idioma o conlang y lo pondremos en la seccion de conlangs </h3>
+        <button class="contact-btn">Contactar</button>
+    </div>
+</div>
+    <!-- BOTÓN BACK TO TOP -->
+    <button class="back-to-top" onclick="scrollToTop()">⬆</button>
+
+    <script>
+        // Mostrar botón al hacer scroll
+        window.onscroll = function() {
+            let topButton = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                topButton.style.display = "block";
+            } else {
+                topButton.style.display = "none";
+            }
+        };
+
+        // Función para volver arriba
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+
+</body>
+</html>
