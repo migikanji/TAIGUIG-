@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ミギー大言語・日本語</title>
+        <style>
+        /* Fuente personalizada */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('patron-personalizado.png') repeat;
+            background-size: 120px;
+            color: #262626;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* HEADER OSCURO */
+        header {
+            background-color: rgba(30, 30, 30, 0.95);
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            border-bottom: 3px solid #ff5733;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            color: aliceblue;
+            text-align: center;
+        }
+
+        header img {
+            height: 150px;
+            margin-right: 15px;
+        }
+
+        /* DECORACIÓN CON GIFs */
+        .gif-decorativo {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .gif-izquierda { top: 50px; left: 10px; }
+        .gif-derecha { top: 50px; right: 10px; }
+
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 87, 51, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* BOTÓN DE CONTACTAR */
+        .contact-btn {
+            background-color: #ff5733;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(255, 87, 51, 0.7);
+        }
+
+        .contact-btn:hover {
+            background-color: #c0392b;
+            box-shadow: 0 0 15px rgba(255, 87, 51, 1);
+            transform: scale(1.1);
+        }
+
+        /* DROPDOWN - MENÚ DESPLEGABLE */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .dropdown-btn {
+            background-color: #1e1e1e;
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-btn:hover {
+            background-color: #333;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #2b2b2b;
+            min-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            overflow: hidden;
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ff5733;
+        }
+
+        /* Mostrar dropdown cuando está activo */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+                h1 {
+      text-align: center;
+      color: #460808;
+      background-color: #b43a3a;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(107, 47, 47, 0.2);
+    }
+
+    #searchInput {
+      display: block;
+      margin: 20px auto;
+      padding: 12px;
+      width: 60%;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 2px solid #d65f5f;
+      background-color: #fff7dc;
+    }
+
+    #levelSelect {
+      display: block;
+      margin: 20px auto;
+      padding: 12px;
+      width: 60%;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 2px solid #d65f5f;
+      background-color: #fff7dc;
+    }
+
+    .kanji-card {
+      background: #ffdddd;
+      border-left: 6px solid #672525;
+      border-radius: 14px;
+      box-shadow: 2px 4px 10px rgba(57, 21, 21, 0.15);
+      padding: 18px;
+      margin: 20px auto;
+      max-width: 500px;
+      transition: 0.3s ease;
+      text-align: center;
+      align-content: center;
+    }
+
+    .kanji {
+      font-size: 50px;
+      color: #270606; /* Color del kanji */
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .furigana {
+      font-size: 0.2em; /* Tamaño del furigana */
+      color: #ac2424; /* Mismo color que el kanji */
+      position: absolute;
+      top: -0.9em; /* Ajustamos para que esté más centrado */
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap; /* Para evitar que se ajuste a varias líneas */
+    }
+
+    .reading, .meaning, .info, .examples {
+      margin: 6px 0;
+      color: #241919;
+      text-align: center;
+    }
+
+    .examples {
+      background: #ffe3e3;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: #2d1818;
+      margin-top: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ffffff;
+      border-radius: 15px;
+    }
+
+    th {
+      background-color: #7e1616;
+      color: #461919;
+    }
+
+    td {
+      background-color: #ffffff;
+    }
+
+    table {
+      width: 100%; /* Hacer que la tabla ocupe todo el ancho disponible */
+      margin-top: 20px;
+      border: none;
+      text-align: center;
+      border-radius: 20px;
+    }
+
+    table td, table th {
+      text-align: center; /* Aseguramos que el contenido de la tabla esté centrado */
+    }
+    .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff5733;
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            border: none;
+            box-shadow: 0 0 10px rgba(255, 87, 51, 0.7);
+            transition: 0.3s;
+            display: none;
+        }
+
+        .back-to-top:hover {
+            background-color: #c0392b;
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="ミギー大言語のロゴ.png">
+            ミギー大言語・日本語
+
+        <!-- Dropdown para elegir el nivel -->
+        <select id="levelSelect">
+          <option value="a1">Nivel A1</option>
+          <option value="a2">Nivel A2</option>
+          <option value="b1">Nivel B1</option>
+          <option value="b2">Nivel B2</option>
+          <option value="c1">Nivel C1</option>
+          <option value="c2">Nivel C2</option>
+        </select>
+      </header>
+              <img src="ミギー大言語・日本語.png" class="gif-decorativo" id="gif-izquierda">
+        <input type="text" id="searchInput" placeholder="Buscar kanji, lectura o significado...">
+
+
+        <div class="kanji-card">
+            mas idiomas en....
+            <a href="ミギー大言語oficial.html">ミギー大言語oficial</a>
+          </div>
+
+<div class="kanji-card" id="a1">
+    <div class="kanji">
+      <p class="furigana">あびる</p> <!-- Aquí está el furigana -->
+      浴びる
+    </div>
+    <div class="meaning"><strong>意味:</strong> ducharse</div>
+    <div class="meaning">CONJUGACION (coloq.)
+      <table>
+        <thead>
+            <tr>
+                <th>浴びる</th>
+                <th>presente</th>
+                <th>pasado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>positivo</td>
+                <td>浴びる</td>
+                <td>浴びた</td>
+            </tr>
+            <tr>
+                <td>negativo</td>
+                <td>浴びない</td>
+                <td>浴びなかった</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>浴 | FREC：común | 動詞：2</div>
+    <div class="examples">Ejemplo<br>
+        ・シャワーを浴びる(シャワーをあびる) = tomar una ducha
+    </div>
+  </div>
+  </div>
+    <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">おおきい</p> <!-- Aquí está el furigana -->
+          大きい
+        </div>
+        <div class="meaning"><strong>意味:</strong> grande</div>
+        <div class="meaning">CONJUGACION (coloq.)
+          <table>
+            <thead>
+              <tr>
+                <th>大きい</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>大きい</td>
+                <td>大きかった</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>大きくない</td>
+                <td>大きくなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>大 | FREC：común | 形容詞：1</div>
+        <div class="examples">Ejemplo<br>
+          ・大きい家（おおきい いえ）= casa grande
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">ちいさい</p> <!-- Aquí está el furigana -->
+          小さい
+        </div>
+        <div class="meaning"><strong>意味:</strong> pequeño</div>
+        <div class="meaning">CONJUGACION (coloq.)
+          <table>
+            <thead>
+              <tr>
+                <th>小さい</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>小さい</td>
+                <td>小さかった</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>小さくない</td>
+                <td>小さくなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>小 | FREC：común | 形容詞：1</div>
+        <div class="examples">Ejemplo<br>
+          ・小さい犬（ちいさい いぬ）= perro pequeño
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">あたらしい</p> <!-- Aquí está el furigana -->
+          新しい
+        </div>
+        <div class="meaning"><strong>意味:</strong> nuevo</div>
+        <div class="meaning">CONJUGACION (coloq.)
+          <table>
+            <thead>
+              <tr>
+                <th>新しい</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>新しい</td>
+                <td>新しかった</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>新しくない</td>
+                <td>新しくなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>新 | FREC：común | 形容詞：1</div>
+        <div class="examples">Ejemplo<br>
+          ・新しい車（あたらしい くるま）= coche nuevo
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">うれしい</p> <!-- Aquí está el furigana -->
+          嬉しい
+        </div>
+        <div class="meaning"><strong>意味:</strong> feliz</div>
+        <div class="meaning">CONJUGACION (coloq.)
+          <table>
+            <thead>
+              <tr>
+                <th>嬉しい</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>嬉しい</td>
+                <td>嬉しかった</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>嬉しくない</td>
+                <td>嬉しくなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>嬉 | FREC：común | 形容詞：1</div>
+        <div class="examples">Ejemplo<br>
+          ・嬉しい日（うれしい ひ）= día feliz
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">ねこ</p> <!-- Aquí está el furigana -->
+          猫
+        </div>
+        <div class="meaning"><strong>意味:</strong> gato</div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>猫 | FREC：común | 名詞：1</div>
+        <div class="examples">Ejemplo<br>
+          ・猫を飼う（ねこをかう）= tener un gato
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">いぬ</p> <!-- Aquí está el furigana -->
+          犬
+        </div>
+        <div class="meaning"><strong>意味:</strong> perro</div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>犬 | FREC：común | 名詞：1</div>
+        <div class="examples">Ejemplo<br>
+          ・犬が好きです（いぬがすきです）= Me gustan los perros
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">ともだち</p> <!-- Aquí está el furigana -->
+          友達
+        </div>
+        <div class="meaning"><strong>意味:</strong> amigo</div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>友達 | FREC：común | 名詞：1</div>
+        <div class="examples">Ejemplo<br>
+          ・友達と遊ぶ（ともだちとあそぶ）= Jugar con un amigo
+        </div>
+      </div>
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">たべる</p> <!-- Aquí está el furigana -->
+          食べる
+        </div>
+        <div class="meaning"><strong>意味:</strong> comer</div>
+        <div class="meaning">CONJUGACION
+          <table>
+            <thead>
+              <tr>
+                <th>食べる</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>食べる</td>
+                <td>食べた</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>食べない</td>
+                <td>食べなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>食 | FREC：común | 動詞：2</div>
+        <div class="examples">Ejemplo<br>
+          ・ご飯を食べる（ごはんをたべる）= comer arroz
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">みる</p> <!-- Aquí está el furigana -->
+          見る
+        </div>
+        <div class="meaning"><strong>意味:</strong> ver</div>
+        <div class="meaning">CONJUGACION
+          <table>
+            <thead>
+              <tr>
+                <th>見る</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>見る</td>
+                <td>見た</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>見ない</td>
+                <td>見なかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>見 | FREC：común | 動詞：2</div>
+        <div class="examples">Ejemplo<br>
+          ・映画を見る（えいがをみる）= ver una película
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">いく</p> <!-- Aquí está el furigana -->
+          行く
+        </div>
+        <div class="meaning"><strong>意味:</strong> ir</div>
+        <div class="meaning">CONJUGACION
+          <table>
+            <thead>
+              <tr>
+                <th>行く</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>行く</td>
+                <td>行った</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>行かない</td>
+                <td>行かなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>行 | FREC：común | 動詞：2</div>
+        <div class="examples">Ejemplo<br>
+          ・学校に行く（がっこうにいく）= ir a la escuela
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">のむ</p> <!-- Aquí está el furigana -->
+          飲む
+        </div>
+        <div class="meaning"><strong>意味:</strong> beber</div>
+        <div class="meaning">CONJUGACION
+          <table>
+            <thead>
+              <tr>
+                <th>飲む</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>飲む</td>
+                <td>飲んだ</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>飲まない</td>
+                <td>飲まなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>飲 | FREC：común | 動詞：2</div>
+        <div class="examples">Ejemplo<br>
+          ・お水を飲む（おみずをのむ）= beber agua
+        </div>
+      </div>
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">ある</p> <!-- Aquí está el furigana -->
+          有る
+        </div>
+        <div class="meaning"><strong>意味:</strong> haber, existir (para cosas inanimadas)</div>
+        <div class="meaning">CONJUGACION
+          <table>
+            <thead>
+              <tr>
+                <th>有る</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>有る</td>
+                <td>有った</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>無い(ない)</td>
+                <td>無かった(なかった)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>有 | FREC：común | 動詞：2</div>
+        <div class="examples">Ejemplo<br>
+          ・机の上に本がある（つくえのうえにほんがある）= hay un libro sobre la mesa
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">きる</p> <!-- Aquí está el furigana -->
+          切る
+        </div>
+        <div class="meaning"><strong>意味:</strong> cortar</div>
+        <div class="meaning">CONJUGACION
+          <table>
+            <thead>
+              <tr>
+                <th>切る</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>切る</td>
+                <td>切った</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>切らない</td>
+                <td>切らなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>切 | FREC：común | 動詞：2</div>
+        <div class="examples">Ejemplo<br>
+          ・髪を切る（かみをきる）= cortar el cabello
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">かく</p> <!-- Aquí está el furigana -->
+          書く
+        </div>
+        <div class="meaning"><strong>意味:</strong> escribir</div>
+        <div class="meaning">CONJUGACION
+          <table>
+            <thead>
+              <tr>
+                <th>書く</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>書く</td>
+                <td>書いた</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>書かない</td>
+                <td>書かなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>書 | FREC：común | 動詞：2</div>
+        <div class="examples">Ejemplo<br>
+          ・手紙を書く（てがみをかく）= escribir una carta
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">たつ</p> <!-- Aquí está el furigana -->
+          立つ
+        </div>
+        <div class="meaning"><strong>意味:</strong> levantarse, ponerse de pie</div>
+        <div class="meaning">CONJUGACION
+          <table>
+            <thead>
+              <tr>
+                <th>立つ</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>立つ</td>
+                <td>立った</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>立たない</td>
+                <td>立たなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>立 | FREC：común | 動詞：2</div>
+        <div class="examples">Ejemplo<br>
+          ・部屋に立つ（へやにたつ）= ponerse de pie en la habitación
+        </div>
+      </div>
+      
+      <div class="kanji-card" id="a1">
+        <div class="kanji">
+          <p class="furigana">わかる</p> <!-- Aquí está el furigana -->
+          分かる
+        </div>
+        <div class="meaning"><strong>意味:</strong> entender</div>
+        <div class="meaning">CONJUGACION
+          <table>
+            <thead>
+              <tr>
+                <th>分かる</th>
+                <th>presente</th>
+                <th>pasado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>positivo</td>
+                <td>分かる</td>
+                <td>分かった</td>
+              </tr>
+              <tr>
+                <td>negativo</td>
+                <td>分からない</td>
+                <td>分からなかった</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>分 | FREC：común | 動詞：2</div>
+        <div class="examples">Ejemplo<br>
+          ・日本語が分かる（にほんごがわかる）= entender japonés
+        </div>
+      </div>
+<div class="kanji-card" id="a1">
+  <div class="kanji">
+    <p class="furigana">あう</p> <!-- Aquí está el furigana -->
+    会う
+  </div>
+  <div class="meaning"><strong>意味:</strong> encontrarse</div>
+  <div class="meaning">CONJUGACION
+    <table>
+      <thead>
+        <tr>
+          <th>会う</th>
+          <th>presente</th>
+          <th>pasado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>positivo</td>
+          <td>会う</td>
+          <td>会った</td>
+        </tr>
+        <tr>
+          <td>negativo</td>
+          <td>会わない</td>
+          <td>会わなかった</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>会 | FREC：común | 動詞：2</div>
+  <div class="examples">Ejemplo<br>
+    ・友達に会う（ともだちにあう）= encontrarse con un amigo
+  </div>
+</div>
+
+<div class="kanji-card" id="a1">
+  <div class="kanji">
+    <p class="furigana">おきる</p> <!-- Aquí está el furigana -->
+    起きる
+  </div>
+  <div class="meaning"><strong>意味:</strong> levantarse</div>
+  <div class="meaning">CONJUGACION
+    <table>
+      <thead>
+        <tr>
+          <th>起きる</th>
+          <th>presente</th>
+          <th>pasado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>positivo</td>
+          <td>起きる</td>
+          <td>起きた</td>
+        </tr>
+        <tr>
+          <td>negativo</td>
+          <td>起きない</td>
+          <td>起きなかった</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>起 | FREC：común | 動詞：2</div>
+  <div class="examples">Ejemplo<br>
+    ・朝早く起きる（あさはやくおきる）= levantarse temprano por la mañana
+  </div>
+</div>
+
+<div class="kanji-card" id="a1">
+  <div class="kanji">
+    <p class="furigana">はなす</p> <!-- Aquí está el furigana -->
+    話す
+  </div>
+  <div class="meaning"><strong>意味:</strong> hablar</div>
+  <div class="meaning">CONJUGACION
+    <table>
+      <thead>
+        <tr>
+          <th>話す</th>
+          <th>presente</th>
+          <th>pasado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>positivo</td>
+          <td>話す</td>
+          <td>話した</td>
+        </tr>
+        <tr>
+          <td>negativo</td>
+          <td>話さない</td>
+          <td>話さなかった</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="info"><strong>JLPT：</strong>N5 | <strong>漢字：</strong>話 | FREC：común | 動詞：2</div>
+  <div class="examples">Ejemplo<br>
+    ・日本語を話す（にほんごをはなす）= hablar japonés
+  </div>
+</div>
+      
+
+  <div class="kanji-card" id="a1">
+    <div class="kanji">
+      は、が、の、も、をの助詞
+    </div>
+<div class="info">
+  <h1><strong>は (wa)</strong></h1>La partícula **は** se pronuncia "wa" cuando se utiliza en las oraciones, aunque se escribe como "は" en hiragana. **は** se usa para marcar el **tema** de la oración. En otras palabras, **は** introduce lo que se va a hablar, mientras que lo que sigue en la oración es el **enfoque principal**. Piensa en ella como una forma de señalar de qué estás hablando.La estructura es algo como: <u>tema</u> は <u>enfoque principal</u>. Aquí tienes un ejemplo:</p>
+私（わたし）はミゲルです。
+        Watashi wa Miguel desu. = Yo soy Miguel.
+        En este caso, "yo" es el tema de la oración, y "soy Miguel" es la información principal sobre el tema. La partícula **は** señala que el foco de la oración es "yo".
+    </div>
+    <div class="info">
+        <h1><strong>が</strong></h1>
+        La partícula **が** se usa para marcar el **enfoque principal** de la oración, es decir, lo que **es importante** o lo que se quiere enfatizar. A menudo, el **sujeto** de la acción también está marcado por **が**, pero lo importante es que marca el **enfoque** de la acción o descripción, en lugar de solo identificar el sujeto.
+        Un ejemplo es:
+        <br>
+        <strong>私がミゲルです</strong> ＝ *YO soy miguel*  
+        En esta oración, el enfoque principal es *yo* y no *miguel*, por lo que usamos **が** para indicar que *yo* es el que tiene la importancia
+        <br>
+        Otro ejemplo:
+        <strong>犬が好きです</strong> ＝ *Me gustan los perros*.  
+        Aquí, el enfoque principal es *los perros* (犬), ya que es lo que se enfatiza sobre lo que me gusta.
+      </div>
+    
+      <div class="info">
+        <h1><strong>の</strong></h1>
+        La partícula の se usa para indicar **posesión** o para hacer una **relación** entre dos sustantivos. Se traduce como "de" o "de pertenencia".  
+        Un ejemplo es:
+        <br>
+        <strong>私の本</strong> ＝ *Mi libro*.  
+        En este caso, *私* (yo) está relacionado con *本* (libro) a través de la partícula の, lo que indica que el libro me pertenece.
+      </div>
+    
+      <div class="info">
+        <h1><strong>も</strong></h1>
+        La partícula も se usa para indicar "también" o "inclusive". Se usa para añadir algo similar o relacionado con lo que se ha mencionado antes.  
+        Un ejemplo es:
+        <br>
+        <strong>私は学生です。彼も学生です</strong> ＝ *Yo soy estudiante. Él también es estudiante*.  
+        Aquí, la partícula も indica que la segunda persona también es estudiante, al igual que el sujeto anterior.
+      </div>
+    
+      <div class="info">
+        <h1><strong>を (o)</strong></h1>
+        La partícula を se usa para indicar el **objeto directo** de una acción, es decir, lo que está siendo hecho o afectado por el verbo.  
+        Un ejemplo es:
+        <br>
+        <strong>本を読む</strong> ＝ *Leer un libro*.  
+        Aquí, *本* (libro) es el objeto directo de la acción *leer* (読む). La partícula を se coloca después del objeto directo.
+      </div>
+    </div>
+  </div>
+  <div class="kanji-card" id="a1">
+    <div class="kanji">
+        へ、に、で、から、まで、か、と、よ、やの助詞
+    </div>
+  
+    <div class="info">
+      <h1><strong>へ (e)</strong></h1>
+      <p>La partícula <strong>へ</strong> indica dirección o destino, y se traduce como **"a"** o **"hacia"**.</p>
+      <div class="example">
+        <p>Ejemplo: <strong>学校へ行く</strong> (がっこうへいく) = *Voy a la escuela*.</p>
+        <p>En este caso, "学校" (escuela) es el destino al que se va.</p>
+      </div>
+  
+      <h1><strong>で (de)</strong></h1>
+      <p>La partícula <strong>で</strong> se usa para indicar el lugar donde ocurre una acción o el medio de transporte.tambien para decir con que haces la accion</p>
+      <div class="example">
+        <p>Ejemplo: <strong>公園で遊ぶ</strong> (こうえんであそぶ) = *Jugar en el parque*.</p>
+        <p>También se puede usar para medios de transporte: <strong>バスで行く</strong> (ばすでいく) = *Voy en autobús*.</p>
+        <p>con que haces la accion: <strong>鉛筆で書く</strong> (えんぴつでかく) = *escribo con el lapiz*.</p>
+      </div>
+  
+      <h1><strong>から (kara) / まで (made)</strong></h1>
+      <p><strong>から</strong> se usa para indicar el **punto de inicio** de una acción o evento, y <strong>まで</strong> se usa para indicar el **punto final**.</p>
+      <div class="example">
+        <p>Ejemplo: <strong>9時から仕事を始めます</strong> (くじからしごとをはじめます) = *Empiezo a trabajar desde las 9*.</p>
+        <p>Ejemplo: <strong>5時まで働きます</strong> (ごじまではたらきます) = *Trabajo hasta las 5*.</p>
+      </div>
+  
+      <h1><strong>か (ka)</strong></h1>
+      <p>La partícula <strong>か</strong> se utiliza para hacer preguntas o para dar opciones entre dos o más cosas. Se traduce como **"?"** en preguntas o **"o"** para opciones.</p>
+      <div class="example">
+        <p>Ejemplo: <strong>日本へ行きますか</strong> (にほんへいきますか) = *¿Vas a Japón?*.</p>
+        <p>Ejemplo: <strong>コーヒーかお茶を飲みますか</strong> (こーひーかおちゃをのみますか) = *¿Vas a tomar café o té?*.</p>
+      </div>
+  
+      <h1><strong>よ (yo)</strong></h1>
+      <p>La partícula <strong>よ</strong> se coloca al final de la oración para dar énfasis a lo que se dice. Puede expresar que la información es nueva para el oyente o agregar certeza a lo que se afirma.</p>
+      <div class="example">
+        <p>Ejemplo: <strong>これは面白いよ</strong> (これはおもしろいよ) = *Esto es interesante, ¡te lo aseguro!*.</p>
+        <p>En este caso, <strong>よ</strong> le da énfasis a la afirmación de que algo es interesante, como una forma de asegurarle al oyente que lo es.</p>
+      </div>
+  
+      <h1><strong>と (to)</strong></h1>
+      <p>La partícula <strong>と</strong> se usa para conectar sustantivos, y se traduce como **"y"** o **"con"**. Es muy útil para hacer listas o para indicar compañía.</p>
+      <div class="example">
+        <p>Ejemplo: <strong>猫と犬</strong> (ねこといぬ) = *El gato y el perro*.</p>
+        <p>Ejemplo: <strong>友達と行く</strong> (ともだちといく) = *Voy con un amigo*.</p>
+      </div>
+  
+      <h1><strong>や (ya)</strong></h1>
+      <p>La partícula <strong>や</strong> se usa para enumerar cosas de manera no exhaustiva, similar a "y" en español, pero indicando que hay más cosas no mencionadas.</p>
+      <div class="example">
+        <p>Ejemplo: <strong>リンゴやバナナ</strong> (りんごやばなな) = *Manzanas y plátanos (entre otras cosas)*.</p>
+      </div>
+  
+      <h1><strong>へ (e) vs. に (ni)</strong></h1>
+      <p>Ambas partículas se usan para indicar dirección o destino, pero <strong>へ</strong> se usa para expresar el sentido de "hacia", mientras que <strong>に</strong> se usa cuando se especifica el destino exacto o una acción en ese lugar.</p>
+      <div class="example">
+        <p>Ejemplo: <strong>学校に行く</strong> (がっこうにいく) = *Ir a la escuela* (especificando la acción de llegar).</p>
+        <p>Ejemplo: <strong>公園へ行く</strong> (こうえんへいく) = *Ir al parque* (dirección, sin especificar la acción de llegar).</p>
+      </div>
+  
+    </div>
+  </div>
+  
+
+  <!-- Tabla de Kana -->
+  <script>
+    // Función para manejar el cambio de nivel
+    document.getElementById('levelSelect').addEventListener('change', function() {
+      const selectedLevel = this.value;
+      const cards = document.querySelectorAll('.kanji-card');
+      cards.forEach(card => {
+        // Mostrar solo los kanjis que corresponden al nivel seleccionado
+        card.classList.toggle('hidden', !card.id.includes(selectedLevel));
+      });
+    });
+
+    // Función para el buscador
+    const input = document.getElementById('searchInput');
+    input.addEventListener('keyup', function() {
+      const filter = input.value.toLowerCase();
+      const cards = document.querySelectorAll('.kanji-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.classList.toggle('hidden', !text.includes(filter));
+      });
+    });
+  </script>
+      <!-- BOTÓN BACK TO TOP -->
+      <button class="back-to-top" onclick="scrollToTop()">⬆</button>
+
+      <script>
+          // Mostrar botón al hacer scroll
+          window.onscroll = function() {
+              let topButton = document.querySelector('.back-to-top');
+              if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                  topButton.style.display = "block";
+              } else {
+                  topButton.style.display = "none";
+              }
+          };
+  
+          // Función para volver arriba
+          function scrollToTop() {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+      </script>
+  
+  </body>
+  </html>
